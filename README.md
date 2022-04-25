@@ -32,7 +32,7 @@ Job Trading
 1. (open terminal)
 2. git clone https://github.com/pepesayshi/trading.git
 3. composer install
-4. node install
+4. npm install
 5. mysql -u root -p
 6. (Enter your root password for local mysql)
 7. CREATE DATABASE trading;
