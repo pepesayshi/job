@@ -1,0 +1,27 @@
+CREATE TABLE users (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  email VARCHAR(20) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+) Engine=InnoDB CHARSET=utf8;
+
+CREATE TABLE jobs (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  label VARCHAR(255) NOT NULL,
+  status VARCHAR(255) NOT NULL,
+  contact VARCHAR(20) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  created DATETIME DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+) Engine=InnoDB CHARSET=utf8;
+
+CREATE TABLE notes (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  jobid INT(11) NOT NULL,
+  userid INT(11) NOT NULL,
+  details TEXT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (jobid) REFERENCES jobs(id),
+  FOREIGN KEY (userid) REFERENCES users(id)
+) Engine=InnoDB CHARSET=utf8;
